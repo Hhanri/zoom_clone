@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zoom_clone/resources/colors.dart';
+import 'package:zoom_clone/utils/app_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,17 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor
       ),
-      home: const HomePage(),
+      onGenerateRoute: AppRouter().onGenerate,
     );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
 

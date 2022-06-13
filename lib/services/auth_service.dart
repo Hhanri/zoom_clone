@@ -37,5 +37,6 @@ class AuthService {
       showSnackBar(context: context, text: e.message!);
       print(e);
     }
+    return res;
   }
 }

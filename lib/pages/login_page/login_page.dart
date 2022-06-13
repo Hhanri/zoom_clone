@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:zoom_clone/services/auth_service.dart';
 import 'package:zoom_clone/widgets/button_widget.dart';
 
 class LoginPage extends HookWidget {
@@ -7,6 +8,7 @@ class LoginPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthService authService = AuthService();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -21,7 +23,14 @@ class LoginPage extends HookWidget {
         Image.asset('assets/images/onboarding.jpg'),
         ButtonWidget(
           text: "Login",
-          onPressed: () {  },
+          onPressed: () async {
+            final bool res = await authService.signInWithGoogle(context);
+            if (res) {
+              //go to home screen
+            } else {
+              
+            }
+          },
         )
       ],
     );
